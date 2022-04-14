@@ -10,6 +10,8 @@
 </head>
 <body>
 	<h1> Welcome, to our app ${ user.name }!  </h1>
-
+	
+	<a href="/application/mesto/add">Dodaj novo mesto</a>
+	<a href="/application/mesto">Vidi sva mesta</a>
 </body>
 </html>
