@@ -17,7 +17,7 @@ public class Proizvodjac {
 	private Long maticniBroj;
 	private String adresa;
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id", insertable=false, updatable=false)
 	private Mesto mesto;
 
 	public Proizvodjac() {

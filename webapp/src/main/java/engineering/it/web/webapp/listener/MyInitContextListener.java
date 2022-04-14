@@ -6,7 +6,10 @@ import java.util.List;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import engineering.it.web.webapp.domain.Mesto;
+import engineering.it.web.webapp.domain.Proizvodjac;
 import engineering.it.web.webapp.domain.User;
+import engineering.it.web.webapp.persistence.MyEntityManagerFactory;
 
 /**
  * Application Lifecycle Listener implementation class MyInitContextListener
@@ -34,6 +37,8 @@ public class MyInitContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce)  { 
         System.out.println("Usao u contextInit");
         sce.getServletContext().setAttribute("loggedInUsers", new ArrayList<User>());
+        
+        
     }
 	
 }
