@@ -9,7 +9,7 @@
 <title> Index page </title>
 </head>
 <body>
-	<h1> Welcome, to our app!  </h1>
+	<h1> Welcome, to our app ${ user.name }!  </h1>
 
 </body>
 </html>
