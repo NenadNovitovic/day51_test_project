@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1> Welcome, please login </h1>
-	<form method='post' action='/webapp/app/login'>
+	<form method='post' action='/webapp/application/login'>
 		<div>
 			<label for='username'>Username:</label> <br>
 			<input type='text' name='username'>
