@@ -21,6 +21,6 @@
 		</div>
 		<input type='submit' value='Login'>
 	</form>
-	<div>${error_user_not_found }</div>
+	<div>${error}</div>
 </body>
 </html>
