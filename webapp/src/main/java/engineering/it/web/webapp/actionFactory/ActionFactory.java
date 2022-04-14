@@ -6,6 +6,7 @@ import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.login.LoginAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
+import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
 import engineering.it.web.webapp.constant.WebConstant;
 
 public class ActionFactory {
@@ -24,7 +25,8 @@ public class ActionFactory {
 		case WebConstant.PATH_ADD_NEW_PROIZVODJAC:
 			if(method.equalsIgnoreCase("GET"))
 				action = new AddNewProizvodjacGetAction();
-			else System.out.println("Poslao post?");
+			else 
+				action = new AddNewProizvodjacPostAction();
 			break;
 		default:
 			break;

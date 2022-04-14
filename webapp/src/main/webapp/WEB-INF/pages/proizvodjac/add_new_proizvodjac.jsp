@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,8 +27,11 @@
 		</div>
 		<div>
 			<label for='mesto'>Adresa:</label> <br>
-			<input type='password' name='mesto'>
-			mada ovde treba da bude select
+			<select name="mesto">
+				<c:forEach items="${mesta }" var= "mesto">
+					<option value="${mesto.naziv }">${mesto.naziv } </option>
+				</c:forEach>
+			</select>
 		</div>
 		<input type='submit' value='Login'>
 	</form>

@@ -35,8 +35,7 @@ public class LoginAction extends AbstractAction{
 	}
 
 	private User login(HttpServletRequest request) {
-		List<User> users = new ArrayList<User>(); // pozovi userStorage i vrati listu usera
-		//users.add(new User("admin","admin","admin"));
+		List<User> users = new ArrayList<User>(); 
 		users = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager().createQuery("from User", User.class).getResultList();
 		User user = null;
 		System.out.println(users);
