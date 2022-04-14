@@ -1,15 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title> Index page </title>
 </head>
 <body>
-	<h1> Welcome </h1>
-
+	<h1> Welcome, please login </h1>
+	<form method='post' action='/webapp/app/login'>
+		<div>
+			<label for='username'>Username:</label> <br>
+			<input type='text' name='username'>
+		</div>
+		<div>
+			<label for='password'>Password:</label> <br>
+			<input type='password' name='password'>
+		</div>
+		<input type='submit' value='Login'>
+	</form>
 </body>
 </html>
