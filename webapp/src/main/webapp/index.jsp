@@ -13,11 +13,11 @@
 	<form method='post' action='/webapp/application/login'>
 		<div>
 			<label for='username'>Username:</label> <br>
-			<input type='text' name='username'>
+			<input value='admin' type='text' name='username'>
 		</div>
 		<div>
 			<label for='password'>Password:</label> <br>
-			<input type='password' name='password'>
+			<input value='admin' type='password' name='password'>
 		</div>
 		<input type='submit' value='Login'>
 	</form>

@@ -12,28 +12,28 @@
 <body>
 	<h1> Add new proizvodjac </h1>
 	
-	<form method='post' action='/webapp/application/login'>
+	<form method='post' action='/webapp/application/proizvodjac/add'>
 		<div>
 			<label for='pib'>PIB:</label> <br>
 			<input type='text' name='pib'>
 		</div>
 		<div>
 			<label for='maticniBroj'>Maticni broj:</label> <br>
-			<input type='password' name='maticniBroj'>
+			<input type='text' name='maticniBroj'>
 		</div>
 		<div>
 			<label for='adresa'>Adresa:</label> <br>
-			<input type='password' name='adresa'>
+			<input type='text' name='adresa'>
 		</div>
 		<div>
 			<label for='mesto'>Adresa:</label> <br>
 			<select name="mesto">
 				<c:forEach items="${mesta }" var= "mesto">
-					<option value="${mesto.naziv }">${mesto.naziv } </option>
+					<option value="${mesto.id }">${mesto.naziv } </option>
 				</c:forEach>
 			</select>
 		</div>
-		<input type='submit' value='Login'>
+		<input type='submit' value='Save proizvodjac'>
 	</form>
 	<div>${error}</div>
 </body>

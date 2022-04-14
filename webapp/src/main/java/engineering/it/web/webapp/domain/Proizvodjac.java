@@ -1,5 +1,6 @@
 package engineering.it.web.webapp.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,12 +17,20 @@ public class Proizvodjac {
 	private Long pib;
 	private Long maticniBroj;
 	private String adresa;
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@JoinColumn(name = "id", insertable=false, updatable=false)
 	private Mesto mesto;
 
 	public Proizvodjac() {
 		super();
+	}
+	
+	public Proizvodjac(Long pib, Long maticniBroj, String adresa, Mesto mesto) {
+		super();
+		this.pib = pib;
+		this.maticniBroj = maticniBroj;
+		this.adresa = adresa;
+		this.mesto = mesto;
 	}
 
 	public Proizvodjac(Long id, Long pib, Long maticniBroj, String adresa, Mesto mesto) {

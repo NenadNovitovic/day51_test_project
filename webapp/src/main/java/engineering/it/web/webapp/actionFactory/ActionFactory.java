@@ -7,6 +7,7 @@ import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.login.LoginAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
+import engineering.it.web.webapp.action.proizvodjac.ProizvodjaciAction;
 import engineering.it.web.webapp.constant.WebConstant;
 
 public class ActionFactory {
@@ -23,10 +24,14 @@ public class ActionFactory {
 			action = new HomeAction();
 			break;
 		case WebConstant.PATH_ADD_NEW_PROIZVODJAC:
+			System.out.println("Method za add new proizvodjac je:" + method);
 			if(method.equalsIgnoreCase("GET"))
 				action = new AddNewProizvodjacGetAction();
-			else 
+			if(method.equalsIgnoreCase("POST"))
 				action = new AddNewProizvodjacPostAction();
+			break;
+		case WebConstant.PATH_PROIZVODJACI:
+			action = new ProizvodjaciAction();
 			break;
 		default:
 			break;

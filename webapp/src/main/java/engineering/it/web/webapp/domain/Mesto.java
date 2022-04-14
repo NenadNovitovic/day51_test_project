@@ -16,6 +16,12 @@ public class Mesto {
 	public Mesto() {
 		super();
 	}
+	
+	public Mesto(Long pttBroj, String naziv) {
+		super();
+		this.pttBroj = pttBroj;
+		this.naziv = naziv;
+	}
 
 	public Mesto(Long id, Long pttBroj, String naziv) {
 		super();

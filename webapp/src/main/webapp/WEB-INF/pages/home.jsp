@@ -15,5 +15,6 @@
 	<a href="/application/mesto">Vidi sva mesta</a>
 	
 	<a href="/webapp/application/proizvodjac/add">Dodaj novog proizvodjaca</a>
+	<a href="/webapp/application/proizvodjac/proizvodjaci">Dodaj novog proizvodjaca</a>
 </body>
 </html>
