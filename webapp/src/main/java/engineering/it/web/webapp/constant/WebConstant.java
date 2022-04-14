@@ -15,5 +15,9 @@ public interface WebConstant {
 	public final String PATH_PROIZVODJACI = "/proizvodjac/proizvodjaci";
 	public final String PAGE_PROIZVODJACI = "/WEB-INF/pages/proizvodjac/proizvodjaci.jsp";
 
+	public final String PATH_ADD_CITY = "/city/add";
+
+	public final String PATH_ADD_MESTO = "/mesto/add";
+
 
 }

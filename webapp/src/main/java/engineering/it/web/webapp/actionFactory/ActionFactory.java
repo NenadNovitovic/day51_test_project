@@ -5,6 +5,7 @@ package engineering.it.web.webapp.actionFactory;
 import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.login.LoginAction;
+import engineering.it.web.webapp.action.mesto.AddMestoAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
 import engineering.it.web.webapp.action.proizvodjac.ProizvodjaciAction;
@@ -33,6 +34,10 @@ public class ActionFactory {
 		case WebConstant.PATH_PROIZVODJACI:
 			action = new ProizvodjaciAction();
 			break;
+		case WebConstant.PATH_ADD_MESTO:
+			action = new AddMestoAction();
+			break;
+			
 		default:
 			break;
 		}
