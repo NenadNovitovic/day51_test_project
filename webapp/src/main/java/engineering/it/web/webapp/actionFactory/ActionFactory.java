@@ -1,13 +1,12 @@
 package engineering.it.web.webapp.actionFactory;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 
 import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.login.LoginAction;
-import engineering.it.web.webapp.domain.User;
+import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
+import engineering.it.web.webapp.constant.WebConstant;
 
 public class ActionFactory {
 
@@ -21,6 +20,11 @@ public class ActionFactory {
 			break;
 		case "/home":
 			action = new HomeAction();
+			break;
+		case WebConstant.PATH_ADD_NEW_PROIZVODJAC:
+			if(method.equalsIgnoreCase("GET"))
+				action = new AddNewProizvodjacGetAction();
+			else System.out.println("Poslao post?");
 			break;
 		default:
 			break;
