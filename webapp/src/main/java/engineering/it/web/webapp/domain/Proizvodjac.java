@@ -12,20 +12,19 @@ import javax.persistence.OneToMany;
 @Entity
 public class Proizvodjac {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private Long pib;
-	private Long maticniBroj;
+	private String pib;
+	private String maticniBroj;
 	private String adresa;
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
-	@JoinColumn(name = "id", insertable=false, updatable=false)
+	@ManyToOne(cascade = { CascadeType.MERGE })
+	//@ManyToOne
+	@JoinColumn(name = "mesto", insertable=false, updatable=false)
 	private Mesto mesto;
 
 	public Proizvodjac() {
 		super();
 	}
 	
-	public Proizvodjac(Long pib, Long maticniBroj, String adresa, Mesto mesto) {
+	public Proizvodjac(String pib, String maticniBroj, String adresa, Mesto mesto) {
 		super();
 		this.pib = pib;
 		this.maticniBroj = maticniBroj;
@@ -33,36 +32,20 @@ public class Proizvodjac {
 		this.mesto = mesto;
 	}
 
-	public Proizvodjac(Long id, Long pib, Long maticniBroj, String adresa, Mesto mesto) {
-		super();
-		this.id = id;
-		this.pib = pib;
-		this.maticniBroj = maticniBroj;
-		this.adresa = adresa;
-		this.mesto = mesto;
-	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getPib() {
+	public String getPib() {
 		return pib;
 	}
 
-	public void setPib(Long pib) {
+	public void setPib(String pib) {
 		this.pib = pib;
 	}
 
-	public Long getMaticniBroj() {
+	public String getMaticniBroj() {
 		return maticniBroj;
 	}
 
-	public void setMaticniBroj(Long maticniBroj) {
+	public void setMaticniBroj(String maticniBroj) {
 		this.maticniBroj = maticniBroj;
 	}
 
@@ -84,7 +67,7 @@ public class Proizvodjac {
 
 	@Override
 	public String toString() {
-		return "Proizvodjac [id=" + id + ", pib=" + pib + ", maticniBroj=" + maticniBroj + ", adresa=" + adresa
+		return "Proizvodjac [pib=" + pib + ", maticniBroj=" + maticniBroj + ", adresa=" + adresa
 				+ ", mesto=" + mesto + "]";
 	}
 

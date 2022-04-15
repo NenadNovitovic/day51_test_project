@@ -31,7 +31,7 @@
 			<label for='mesto'>Adresa:</label> <br>
 			<select name="mesto">
 				<c:forEach items="${mesta }" var= "mesto">
-					<option value="${mesto.id }">${mesto.naziv } </option>
+					<option value="${mesto.pttBroj }">${mesto.naziv } </option>
 				</c:forEach>
 			</select>
 		</div>

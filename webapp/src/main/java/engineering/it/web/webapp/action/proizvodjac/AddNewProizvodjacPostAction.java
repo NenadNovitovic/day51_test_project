@@ -32,24 +32,21 @@ public class AddNewProizvodjacPostAction extends AbstractAction {
 	private boolean updatedDatabase(HttpServletRequest request) {
 		boolean updated = true;
 		// update DB
-		Long pib = Long.parseLong(request.getParameter("pib"));
-		Long maticniBroj = Long.parseLong(request.getParameter("maticniBroj"));
+		String pib = request.getParameter("pib");
+		String maticniBroj = request.getParameter("maticniBroj");
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		List<Proizvodjac> p = em
-				.createQuery("SELECT p FROM Proizvodjac p where pib = " + pib + " OR maticniBroj=" + maticniBroj).getResultList();
-		if(p.isEmpty()) {
+		Proizvodjac existingProizvodjac = em.find(Proizvodjac.class, pib);
+		if(existingProizvodjac==null) {
 			String adresa = request.getParameter("adresa");
-			Long idMesta = Long.parseLong(request.getParameter("mesto"));
-			//Mesto mesto = (Mesto) em.createQuery("SELECT m FROM Mesto m where naziv like :n").setParameter("n", nazivMesta).getSingleResult();
-			Mesto mesto = em.find(Mesto.class, idMesta);
+			Long pttMesta = Long.parseLong(request.getParameter("mesto"));
+			Mesto mesto = em.getReference(Mesto.class, pttMesta);
 			Proizvodjac newProizvodjac = new Proizvodjac(pib,maticniBroj,adresa,mesto);
-			System.out.println("Stigao do ovde..");
 			System.out.println(newProizvodjac);
 			em.persist(newProizvodjac);
 			em.getTransaction().commit();
 		}else {
-			error = "Postoji vec taj pib/maticni broj";
+			error = "Postoji vec taj pib";
 			updated = false;
 		}
 		/*try {
