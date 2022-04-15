@@ -23,7 +23,6 @@ public class LoginAction extends AbstractAction{
 				@SuppressWarnings("unchecked")
 				List<User> loggedInUsers = (List<User>)request.getServletContext().getAttribute("loggedInUsers");
 				loggedInUsers.add(user);
-				//request.setAttribute("user", user);
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
 				return WebConstant.PAGE_HOME;

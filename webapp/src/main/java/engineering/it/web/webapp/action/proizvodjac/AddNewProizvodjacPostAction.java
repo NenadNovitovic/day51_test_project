@@ -18,8 +18,14 @@ public class AddNewProizvodjacPostAction extends AbstractAction {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		if (correctInput(request))
-			if (updatedDatabase(request))
-				return WebConstant.PAGE_HOME;
+			if (updatedDatabase(request)) {
+
+				@SuppressWarnings("unchecked")
+				List<Proizvodjac> proizvodjaci = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager().createQuery("from Proizvodjac").getResultList();
+				request.setAttribute("proizvodjaci", proizvodjaci);
+				return WebConstant.PAGE_PROIZVODJACI;
+				//return new ProizvodjaciAction().execute(request, response);
+			}
 
 		List<Mesto> mesta = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager()
 				.createQuery("from Mesto", Mesto.class).getResultList();
@@ -38,11 +44,13 @@ public class AddNewProizvodjacPostAction extends AbstractAction {
 		em.getTransaction().begin();
 		Proizvodjac existingProizvodjac = em.find(Proizvodjac.class, pib);
 		if(existingProizvodjac==null) {
+			
 			String adresa = request.getParameter("adresa");
 			Long pttMesta = Long.parseLong(request.getParameter("mesto"));
 			Mesto mesto = em.getReference(Mesto.class, pttMesta);
+			em.flush();
 			Proizvodjac newProizvodjac = new Proizvodjac(pib,maticniBroj,adresa,mesto);
-			System.out.println(newProizvodjac);
+			System.out.println(newProizvodjac + "pred persist");
 			em.persist(newProizvodjac);
 			em.getTransaction().commit();
 		}else {

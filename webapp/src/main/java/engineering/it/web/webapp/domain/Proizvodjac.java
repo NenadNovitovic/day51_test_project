@@ -1,23 +1,19 @@
 package engineering.it.web.webapp.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import java.io.Serializable;
+
+import javax.persistence.*;
 
 @Entity
-public class Proizvodjac {
+public class Proizvodjac implements Serializable {
 	@Id
 	private String pib;
 	private String maticniBroj;
 	private String adresa;
-	@ManyToOne(cascade = { CascadeType.MERGE })
+	
+	@ManyToOne(cascade = { CascadeType.MERGE,CascadeType.PERSIST })
 	//@ManyToOne
-	@JoinColumn(name = "mesto", insertable=false, updatable=false)
+	@JoinColumn(name = "mesto")
 	private Mesto mesto;
 
 	public Proizvodjac() {
