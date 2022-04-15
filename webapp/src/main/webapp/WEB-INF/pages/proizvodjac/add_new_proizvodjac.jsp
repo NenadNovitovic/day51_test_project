@@ -10,6 +10,8 @@
 <title> New Proizvodjac </title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/fragments/loggedin_user.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/fragments/navigation.jsp"></jsp:include>
 	<h1> Add new proizvodjac </h1>
 	
 	<form method='post' action='/webapp/application/proizvodjac/add'>

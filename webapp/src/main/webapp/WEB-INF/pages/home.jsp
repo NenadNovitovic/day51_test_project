@@ -6,15 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Index page </title>
+<title> Home page </title>
 </head>
 <body>
-	<h1> Welcome, to our app ${ user.name }!  </h1>
-	
-	<a href="/webapp/application/mesto/add">Dodaj novo mesto</a>
-	<a href="/webapp/application/mesta">Vidi sva mesta</a>
-	
-	<a href="/webapp/application/proizvodjac/add">Dodaj novog proizvodjaca</a>
-	<a href="/webapp/application/proizvodjac/proizvodjaci">Dodaj novog proizvodjaca</a>
+	<jsp:include page="/WEB-INF/fragments/loggedin_user.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/fragments/navigation.jsp"></jsp:include>
+	<h1> Home PAGE</h1>
 </body>
 </html>

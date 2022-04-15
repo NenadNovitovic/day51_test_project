@@ -10,6 +10,8 @@
 <title>Proizvodjaci</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/fragments/loggedin_user.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/fragments/navigation.jsp"></jsp:include>
 	<h1>Svi uneseni proizvodjaci:</h1>
 	<table>
 		<thead>
