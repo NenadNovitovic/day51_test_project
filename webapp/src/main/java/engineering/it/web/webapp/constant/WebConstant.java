@@ -19,6 +19,9 @@ public interface WebConstant {
 	public final String PATH_ADD_MESTO = "/mesto/add";
 	public final String PAGE_ADD_MESTO = "/WEB-INF/pages/mesto/add_mesto.jsp";
 
+	public final String PATH_MESTA = "/mesto/mesta";
+	public final String PAGE_MESTA = "/WEB-INF/pages/mesto/mesta.jsp";
+
 
 
 

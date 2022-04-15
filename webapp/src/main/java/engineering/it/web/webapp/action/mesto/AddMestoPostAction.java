@@ -1,5 +1,7 @@
 package engineering.it.web.webapp.action.mesto;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,12 +28,14 @@ public class AddMestoPostAction extends AbstractAction {
 			if(existingMesto==null) {
 				em.getTransaction().begin();
 				Mesto m = new Mesto(ptt,naziv);
-				System.out.println("novo Mesto: " + m);
 				em.persist(m);
-				System.out.println(m);
 				em.getTransaction().commit();
 				em.close();
-				return WebConstant.PAGE_HOME;
+				
+				@SuppressWarnings("unchecked")
+				List<Mesto> mesta = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager().createQuery("from Mesto").getResultList();
+				request.setAttribute("mesta", mesta);
+				return WebConstant.PAGE_MESTA;
 			}else {
 				request.setAttribute("error", "Mesto sa tim PTT vec postoji!");
 				return WebConstant.PAGE_ADD_MESTO;
