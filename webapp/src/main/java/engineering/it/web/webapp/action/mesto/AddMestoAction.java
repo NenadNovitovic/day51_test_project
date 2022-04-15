@@ -15,7 +15,7 @@ public class AddMestoAction extends AbstractAction {
 		EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		
-		Mesto m = new Mesto(23000l,"Zrenjanin");
+		Mesto m = new Mesto(24000l,"Subotica");
 		em.persist(m);
 		System.out.println(m);
 		

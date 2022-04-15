@@ -5,6 +5,7 @@ public interface WebConstant {
 	public final String PAGE_INDEX = "/index.jsp";
 	
 	public final String PATH_LOGIN = "/login";
+	public final String PATH_LOGOUT = "/logout";
 
 	public final String PATH_HOME = "/home";
 	public final String PAGE_HOME = "/WEB-INF/pages/home.jsp";
@@ -18,6 +19,8 @@ public interface WebConstant {
 	public final String PATH_ADD_CITY = "/city/add";
 
 	public final String PATH_ADD_MESTO = "/mesto/add";
+
+
 
 
 }

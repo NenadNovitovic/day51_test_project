@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.constant.WebConstant;
@@ -22,7 +23,9 @@ public class LoginAction extends AbstractAction{
 				@SuppressWarnings("unchecked")
 				List<User> loggedInUsers = (List<User>)request.getServletContext().getAttribute("loggedInUsers");
 				loggedInUsers.add(user);
-				request.setAttribute("user", user);
+				//request.setAttribute("user", user);
+				HttpSession session = request.getSession(true);
+				session.setAttribute("user", user);
 				return WebConstant.PAGE_HOME;
 			}else {
 				request.setAttribute("error", "User with that username is already logged in!");
