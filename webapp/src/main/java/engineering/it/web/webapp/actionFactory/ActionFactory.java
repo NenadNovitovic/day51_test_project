@@ -6,7 +6,8 @@ import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.login.LoginAction;
 import engineering.it.web.webapp.action.logout.LogoutAction;
-import engineering.it.web.webapp.action.mesto.AddMestoAction;
+import engineering.it.web.webapp.action.mesto.AddMestoGetAction;
+import engineering.it.web.webapp.action.mesto.AddMestoPostAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
 import engineering.it.web.webapp.action.proizvodjac.ProizvodjaciAction;
@@ -38,7 +39,10 @@ public class ActionFactory {
 			action = new ProizvodjaciAction();
 			break;
 		case WebConstant.PATH_ADD_MESTO:
-			action = new AddMestoAction();
+			if(method.equalsIgnoreCase("GET"))
+				action = new AddMestoGetAction();
+			if(method.equalsIgnoreCase("POST"))
+				action = new AddMestoPostAction();
 			break;
 			
 		default:
