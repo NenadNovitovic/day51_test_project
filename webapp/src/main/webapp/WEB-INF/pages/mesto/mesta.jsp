@@ -18,6 +18,7 @@
 			<tr>
 				<td>PTT broj</td>
 				<td>Naziv</td>
+				<td>View</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,6 +26,7 @@
 				<tr>
 					<td>${ mesto.pttBroj }</td>
 					<td>${ mesto.naziv }</td>
+					<td> <a href="/webapp/application/mesto?ptt=${mesto.pttBroj}"> View mesto</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

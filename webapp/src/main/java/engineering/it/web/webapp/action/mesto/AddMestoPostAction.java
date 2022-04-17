@@ -28,12 +28,12 @@ public class AddMestoPostAction extends AbstractAction {
 			Long ptt = Long.parseLong(request.getParameter("pttBroj"));
 			String naziv = request.getParameter("naziv");
 
-			EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
+			//EntityManager em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 
-			Mesto existingMesto = em.find(Mesto.class, ptt);
+			Mesto existingMesto = mestoService.getMesto(ptt);
 			System.out.println("Existing mesto: " + existingMesto);
 			if (existingMesto == null) {
-				em.getTransaction().begin();
+				
 				Mesto m = new Mesto(ptt, naziv);
 				mestoService.addMesto(m);
 
