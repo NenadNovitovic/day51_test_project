@@ -12,15 +12,15 @@
 	<jsp:include page="/WEB-INF/fragments/loggedin_user.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/fragments/navigation.jsp"></jsp:include>
 	
-	<h2> Podaci izabranog mesta</h2>
-	<form method='get' action='/webapp/application/mesto/edit'>
+	<h2> Izmenite mesto : </h2>
+	<form method='post' action='/webapp/application/mesto/edit'>
 		<div>
 			<label for='pttBroj'>PTT broj:</label> <br>
-			<input type='text' name='pttBroj' value='${mesto.pttBroj}' readonly="readonly">
+			<input type='text' name='pttBroj' value=${mesto.pttBroj} readonly="readonly">
 		</div>
 		<div>
 			<label for='naziv'>Naziv:</label> <br>
-			<input type='text' name='naziv' value='${mesto.naziv}' readonly="readonly">
+			<input type='text' name='naziv' value='${mesto.naziv}'>
 		</div>
 		<input type='submit' name='btn-action' value='Edit'>
 		<input type='submit' name='btn-action' value='Back'>

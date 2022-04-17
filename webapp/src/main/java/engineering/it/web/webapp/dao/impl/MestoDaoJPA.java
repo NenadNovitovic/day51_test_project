@@ -45,7 +45,17 @@ public class MestoDaoJPA implements MestoDao {
 
 	@Override
 	public boolean update(Mesto m) {
-		boolean updated = true;
+		boolean updated = false;
+		
+		
+		Mesto existing = em.find(Mesto.class, m.getPttBroj());
+		if(existing!=null) {
+			em.getTransaction().begin();
+			existing.setNaziv(m.getNaziv());
+			em.getTransaction().commit();
+			updated= true;
+		}
+
 		return updated;
 	}
 
