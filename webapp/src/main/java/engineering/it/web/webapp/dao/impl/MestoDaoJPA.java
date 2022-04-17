@@ -11,36 +11,35 @@ import engineering.it.web.webapp.persistence.MyEntityManagerFactory;
 public class MestoDaoJPA implements MestoDao {
 
 	private EntityManager em;
-	
+
 	public MestoDaoJPA() {
 		em = MyEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Mesto> getAll() {
 		return em.createQuery("from Mesto").getResultList();
 	}
 
-
 	@Override
 	public Mesto getById(Long ptt) {
 		Mesto m = null;
-		
+
 		m = em.find(Mesto.class, ptt);
-		
+
 		return m;
 	}
 
 	@Override
 	public boolean add(Mesto m) {
 		boolean added = true;
-		
+
 		em.getTransaction().begin();
 		em.persist(m);
 		em.getTransaction().commit();
 		em.close();
-		
+
 		return added;
 	}
 
@@ -52,7 +51,15 @@ public class MestoDaoJPA implements MestoDao {
 
 	@Override
 	public boolean delete(Long ptt) {
-		boolean deleted = true;
+		boolean deleted = false;
+		Mesto m = em.find(Mesto.class, ptt);
+		if(m!=null) {
+			em.getTransaction().begin();
+			em.remove(m);
+			em.getTransaction().commit();
+			deleted = true;
+		}
+
 		return deleted;
 	}
 

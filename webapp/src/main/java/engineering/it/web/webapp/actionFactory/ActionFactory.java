@@ -10,6 +10,7 @@ import engineering.it.web.webapp.action.login.LoginAction;
 import engineering.it.web.webapp.action.logout.LogoutAction;
 import engineering.it.web.webapp.action.mesto.AddMestoGetAction;
 import engineering.it.web.webapp.action.mesto.AddMestoPostAction;
+import engineering.it.web.webapp.action.mesto.DeleteMestoAction;
 import engineering.it.web.webapp.action.mesto.MestaAction;
 import engineering.it.web.webapp.action.mesto.ViewMestoAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
@@ -61,6 +62,9 @@ public class ActionFactory {
 				break;
 			case WebConstant.PATH_VIEW_MESTO:
 				action = new ViewMestoAction();
+				break;
+			case WebConstant.PATH_DELETE_MESTO:
+				action = new DeleteMestoAction();
 				break;
 			default:
 				break;

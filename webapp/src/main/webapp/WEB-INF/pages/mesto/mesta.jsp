@@ -19,6 +19,7 @@
 				<td>PTT broj</td>
 				<td>Naziv</td>
 				<td>View</td>
+				<td>Delete</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +28,7 @@
 					<td>${ mesto.pttBroj }</td>
 					<td>${ mesto.naziv }</td>
 					<td> <a href="/webapp/application/mesto?ptt=${mesto.pttBroj}"> View mesto</a></td>
+					<td> <a href="/webapp/application/mesto/delete?ptt=${mesto.pttBroj}"> X </a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

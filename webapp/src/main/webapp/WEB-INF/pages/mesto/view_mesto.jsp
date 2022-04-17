@@ -23,7 +23,6 @@
 			<input type='text' name='naziv' value=${mesto.naziv} readonly="readonly">
 		</div>
 		<input type='submit' name='btn-action' value='Edit'>
-		<input type='submit' name='btn-action' value='Delete'>
 		<input type='submit' name='btn-action' value='Back'>
 	</form>
 	<div>${error}</div>

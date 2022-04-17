@@ -25,6 +25,8 @@ public interface WebConstant {
 	public final String PATH_VIEW_MESTO = "/mesto";
 	public final String PAGE_VIEW_MESTO = "/WEB-INF/pages/mesto/view_mesto.jsp";
 
+	public final String PATH_DELETE_MESTO = "/mesto/delete";
+
 
 
 
