@@ -37,7 +37,7 @@
 								View mesto</a></td>
 						<td><a
 							href="/webapp/application/mesto/delete?ptt=${mesto.pttBroj}">
-								X </a></td>
+								DELETE  </a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

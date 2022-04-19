@@ -17,6 +17,8 @@ import engineering.it.web.webapp.action.mesto.MestaAction;
 import engineering.it.web.webapp.action.mesto.ViewMestoAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
+import engineering.it.web.webapp.action.proizvodjac.DeleteProizvodjacGetAction;
+import engineering.it.web.webapp.action.proizvodjac.DeleteProizvodjacPostAction;
 import engineering.it.web.webapp.action.proizvodjac.ProizvodjaciAction;
 import engineering.it.web.webapp.constant.WebConstant;
 import engineering.it.web.webapp.domain.User;
@@ -73,6 +75,12 @@ public class ActionFactory {
 					action = new EditMestoGetAction();
 				if(method.equalsIgnoreCase("POST"))
 					action = new EditMestoPostAction();
+				break;
+			case WebConstant.PATH_DELETE_PROIZVODJAC:
+				if(method.equalsIgnoreCase("GET"))
+					action = new DeleteProizvodjacGetAction();
+				if(method.equalsIgnoreCase("POST"))
+					action = new DeleteProizvodjacPostAction();
 				break;
 			default:
 				break;
