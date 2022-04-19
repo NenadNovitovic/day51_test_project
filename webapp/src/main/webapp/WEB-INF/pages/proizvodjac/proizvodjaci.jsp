@@ -26,6 +26,7 @@
 					<th scope="col">Maticni broj</th>
 					<th scope="col">Adresa</th>
 					<th scope="col">Naziv mesta</th>
+					<th scope="col">View</th>
 					<th scope="col">Delete</th>
 				</tr>
 			</thead>
@@ -35,8 +36,11 @@
 						<td>${ proizvodjac.pib }</td>
 						<td>${ proizvodjac.maticniBroj }</td>
 						<td>${ proizvodjac.adresa }</td>
-						<td>${ proizvodjac.mesto.naziv }</td>		
-						<td><a href="/webapp/application/proizvodjac/delete?pib=${proizvodjac.pib}">DELETE</a></td>
+						<td>${ proizvodjac.mesto.naziv }</td>
+						<td><a
+							href="/webapp/application/proizvodjac?pib=${proizvodjac.pib}">View</a></td>
+						<td><a
+							href="/webapp/application/proizvodjac/delete?pib=${proizvodjac.pib}">DELETE</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

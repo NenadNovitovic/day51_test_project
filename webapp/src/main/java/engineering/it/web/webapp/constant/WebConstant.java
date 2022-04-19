@@ -29,10 +29,16 @@ public interface WebConstant {
 
 	public final String PATH_EDIT_MESTO = "/mesto/edit";
 	public final String PAGE_EDIT_MESTO = "/WEB-INF/pages/mesto/edit_mesto.jsp";
-/////webapp/application/mesto/delete?pib=${proizvodjac.pib}
 	
 	public final String PATH_DELETE_PROIZVODJAC = "/proizvodjac/delete";
 	public final String PAGE_CONFIRM_DELETE_PROIZVODJAC = "/WEB-INF/pages/proizvodjac/confirm_delete_proizvodjac.jsp";
+
+	public final String PATH_VIEW_PROIZVODJAC = "/proizvodjac";
+	public final String PAGE_VIEW_PROIZVODJAC = "/WEB-INF/pages/proizvodjac/view_proizvodjac.jsp";
+
+	
+	public final String PATH_EDIT_PROIZVODJAC = "/proizvodjac/edit";
+	public final String PAGE_EDIT_PROIZVODJAC = "/WEB-INF/pages/proizvodjac/edit_proizvodjac.jsp";
 
 
 
