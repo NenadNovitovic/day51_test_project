@@ -4,6 +4,7 @@ import java.util.List;
 
 import engineering.it.web.webapp.dao.MestoDao;
 import engineering.it.web.webapp.dao.impl.MestoDaoJPA;
+import engineering.it.web.webapp.dao.impl.MestoDaoSpringJDBC;
 import engineering.it.web.webapp.domain.Mesto;
 import engineering.it.web.webapp.service.MestoService;
 
@@ -14,7 +15,8 @@ public class MestoServiceImpl implements MestoService {
 	
 	public MestoServiceImpl() {
 		super();
-		this.dao = new MestoDaoJPA();
+		//this.dao = new MestoDaoJPA();
+		this.dao = new MestoDaoSpringJDBC();
 	}
 
 	@Override
