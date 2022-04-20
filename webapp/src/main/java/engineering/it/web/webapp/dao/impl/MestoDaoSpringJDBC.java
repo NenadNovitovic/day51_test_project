@@ -91,8 +91,9 @@ public class MestoDaoSpringJDBC implements MestoDao {
 
 	@Override
 	public boolean delete(Long ptt) {
-		// TODO Auto-generated method stub
-		return false;
+		String query = "DELETE FROM Mesto where pttBroj=?";
+		jdbcTemplate.update(query,ptt);
+		return true;
 	}
 
 }
