@@ -57,10 +57,10 @@ public class MestoDaoSpringJDBC implements MestoDao {
 	public Mesto getById(Long ptt) {
 		try {
 			return jdbcTemplate.queryForObject("SELECT * FROM Mesto where pttBroj=" + ptt, new MestoMapper());
-		}catch(EmptyResultDataAccessException e) {
+		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
-		 
+
 	}
 
 	@Override
@@ -69,15 +69,13 @@ public class MestoDaoSpringJDBC implements MestoDao {
 		String sql = "INSERT INTO mesto(pttBroj,naziv)  VALUES(:pttBroj, :naziv) ";
 		System.out.println(sql);
 		System.out.println(m);
-		/*Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("pttBroj", m.getPttBroj());
-		parameters.put("naziv", m.getNaziv());
-		jdbcTemplate.update(sql, parameters);*/
+		/*
+		 * Map<String, Object> parameters = new HashMap<String, Object>();
+		 * parameters.put("pttBroj", m.getPttBroj()); parameters.put("naziv",
+		 * m.getNaziv()); jdbcTemplate.update(sql, parameters);
+		 */
 
-		
-		  jdbcTemplate.update("INSERT INTO mesto(pttBroj,naziv)  VALUES(?,?)",
-		  m.getPttBroj(), m.getNaziv());
-		 
+		jdbcTemplate.update("INSERT INTO mesto(pttBroj,naziv)  VALUES(?,?)", m.getPttBroj(), m.getNaziv());
 
 		System.out.println("dodao " + m);
 		return true;
@@ -85,14 +83,14 @@ public class MestoDaoSpringJDBC implements MestoDao {
 
 	@Override
 	public boolean update(Mesto m) {
-		// TODO Auto-generated method stub
-		return false;
+		jdbcTemplate.update("UPDATE mesto set naziv=? where pttBroj=?", m.getNaziv(), m.getPttBroj());
+		return true;
 	}
 
 	@Override
 	public boolean delete(Long ptt) {
 		String query = "DELETE FROM Mesto where pttBroj=?";
-		jdbcTemplate.update(query,ptt);
+		jdbcTemplate.update(query, ptt);
 		return true;
 	}
 
