@@ -2,21 +2,29 @@ package engineering.it.web.webapp.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import engineering.it.web.webapp.dao.MestoDao;
 import engineering.it.web.webapp.dao.impl.MestoDaoJPA;
 import engineering.it.web.webapp.dao.impl.MestoDaoSpringJDBC;
 import engineering.it.web.webapp.domain.Mesto;
 import engineering.it.web.webapp.service.MestoService;
 
+@Service
 public class MestoServiceImpl implements MestoService {
 	
+	@Autowired
 	private MestoDao dao;
 
 	
 	public MestoServiceImpl() {
 		super();
 		//this.dao = new MestoDaoJPA();
-		this.dao = new MestoDaoSpringJDBC();
+
+		System.out.println("MestoServiceImpl const, init novog ProizvodjacDaoJPA");
+		//this.dao = new MestoDaoSpringJDBC();
+		System.out.println("MestoServiceImpl : MestoDao : " + this.dao);
 	}
 
 	@Override

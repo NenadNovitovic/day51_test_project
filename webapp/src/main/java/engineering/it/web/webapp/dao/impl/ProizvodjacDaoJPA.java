@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import engineering.it.web.webapp.dao.MestoDao;
 import engineering.it.web.webapp.dao.ProizvodjacDao;
 import engineering.it.web.webapp.domain.Mesto;
 import engineering.it.web.webapp.domain.Proizvodjac;
 import engineering.it.web.webapp.persistence.MyEntityManagerFactory;
 
+@Repository
 public class ProizvodjacDaoJPA implements ProizvodjacDao {
 
 	private EntityManager em;

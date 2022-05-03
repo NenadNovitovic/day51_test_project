@@ -1,18 +1,27 @@
 package engineering.it.web.webapp.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+
 import engineering.it.web.webapp.controller.ApplicationController;
 
 
-
+@Component
 public class FrontControllerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Autowired
 	private ApplicationController applicationController;
 
 	/**
@@ -20,6 +29,8 @@ public class FrontControllerServlet extends HttpServlet {
 	 */
 	public FrontControllerServlet() {
 		super();
+		System.out.println("FrontControllerServlet const");
+		System.out.println("FrontControllerServlet ApplicationController: " + applicationController);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -48,8 +59,14 @@ public class FrontControllerServlet extends HttpServlet {
 	}
 
 	@Override
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
 		System.out.println("Created ApplicationController!");
-		applicationController = new ApplicationController();
+		
+		ApplicationContext appContext = (ApplicationContext) config.getServletContext().getAttribute("app-context");
+		AutowireCapableBeanFactory acbf = appContext.getAutowireCapableBeanFactory();
+		acbf.autowireBean(this);
+		System.out.println("AppControler: " + applicationController);
+		//applicationController = new ApplicationController();
 	}
 }

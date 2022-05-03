@@ -6,10 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Component;
+
 import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.constant.WebConstant;
 import engineering.it.web.webapp.domain.User;
 
+@Component
 public class LogoutAction extends AbstractAction {
 
 	@Override

@@ -3,6 +3,9 @@ package engineering.it.web.webapp.actionFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import engineering.it.web.webapp.action.AbstractAction;
 import engineering.it.web.webapp.action.home.HomeAction;
 import engineering.it.web.webapp.action.index.IndexAction;
@@ -24,9 +27,47 @@ import engineering.it.web.webapp.action.proizvodjac.ViewProizvodjacAction;
 import engineering.it.web.webapp.constant.WebConstant;
 import engineering.it.web.webapp.domain.User;
 
+@Component
 public class ActionFactory {
+	
+	@Autowired
+	private MestaAction mestaAction;
+	@Autowired
+	private LoginAction loginAction;
+	@Autowired
+	private LogoutAction logoutAction;
+	@Autowired
+	private HomeAction homeAction;
+	@Autowired
+	private AddNewProizvodjacGetAction addNewProizvodjacGetAction;
+	@Autowired
+	private AddNewProizvodjacPostAction addNewProizvodjacPostAction;
+	@Autowired
+	private AbstractAction proizvodjaciAction;
+	@Autowired
+	private AbstractAction addMestoGetAction;
+	@Autowired
+	private AbstractAction addMestoPostAction;
+	@Autowired
+	private AbstractAction viewMestoAction;
+	@Autowired
+	private AbstractAction deleteMestoAction;
+	@Autowired
+	private AbstractAction editMestoGetAction;
+	@Autowired
+	private AbstractAction editMestoPostAction;
+	@Autowired
+	private AbstractAction deleteProizvodjacGetAction;
+	@Autowired
+	private AbstractAction deleteProizvodjacPostAction;
+	@Autowired
+	private AbstractAction viewProizvodjacAction;
+	
+	public ActionFactory() {
+		System.out.println("ActionFactory conts : MestaAction: " +mestaAction);
+	}
 
-	public static AbstractAction createAction(HttpServletRequest request) {
+	public  AbstractAction createAction(HttpServletRequest request) {
 		AbstractAction action = null;
 
 		String method = request.getMethod();
@@ -39,58 +80,59 @@ public class ActionFactory {
 		if (user != null || path.equals(WebConstant.PATH_LOGIN)) {
 			switch (path) {
 			case WebConstant.PATH_LOGIN:
-				action = new LoginAction();
+				action = loginAction;
 				break;
 			case WebConstant.PATH_LOGOUT:
-				action = new LogoutAction();
+				action = logoutAction;
 				break;
 			case WebConstant.PATH_HOME:
-				action = new HomeAction();
+				action = homeAction;
 				break;
 			case WebConstant.PATH_ADD_NEW_PROIZVODJAC:
 				if (method.equalsIgnoreCase("GET"))
-					action = new AddNewProizvodjacGetAction();
+					action = addNewProizvodjacGetAction;
 				if (method.equalsIgnoreCase("POST"))
-					action = new AddNewProizvodjacPostAction();
+					action = addNewProizvodjacPostAction;
 				break;
 			case WebConstant.PATH_PROIZVODJACI:
-				action = new ProizvodjaciAction();
+				action = proizvodjaciAction;
 				break;
 			case WebConstant.PATH_ADD_MESTO:
 				if (method.equalsIgnoreCase("GET"))
-					action = new AddMestoGetAction();
+					action = addMestoGetAction;
 				if (method.equalsIgnoreCase("POST"))
-					action = new AddMestoPostAction();
+					action = addMestoPostAction;
 				break;
 			case WebConstant.PATH_MESTA:
-				action = new MestaAction();
+				//action = new MestaAction();
+				action = mestaAction;
 				break;
 			case WebConstant.PATH_VIEW_MESTO:
-				action = new ViewMestoAction();
+				action = viewMestoAction;
 				break;
 			case WebConstant.PATH_DELETE_MESTO:
-				action = new DeleteMestoAction();
+				action = deleteMestoAction;
 				break;
 			case WebConstant.PATH_EDIT_MESTO:
 				if(method.equalsIgnoreCase("GET"))
-					action = new EditMestoGetAction();
+					action = editMestoGetAction;
 				if(method.equalsIgnoreCase("POST"))
-					action = new EditMestoPostAction();
+					action = editMestoPostAction;
 				break;
 			case WebConstant.PATH_DELETE_PROIZVODJAC:
 				if(method.equalsIgnoreCase("GET"))
-					action = new DeleteProizvodjacGetAction();
+					action = deleteProizvodjacGetAction;
 				if(method.equalsIgnoreCase("POST"))
-					action = new DeleteProizvodjacPostAction();
+					action = deleteProizvodjacPostAction;
 				break;
 			case WebConstant.PATH_VIEW_PROIZVODJAC:
-				action = new ViewProizvodjacAction();
+				action = viewProizvodjacAction;
 				break;
 			case WebConstant.PATH_EDIT_PROIZVODJAC:
 				if(method.equalsIgnoreCase("GET"))
-					action = new DeleteProizvodjacGetAction();
+					action = deleteProizvodjacGetAction;
 				if(method.equalsIgnoreCase("POST"))
-					action = new DeleteProizvodjacPostAction();
+					action = deleteProizvodjacPostAction;
 				break;
 			default:
 				break;

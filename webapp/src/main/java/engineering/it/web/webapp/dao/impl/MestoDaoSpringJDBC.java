@@ -6,25 +6,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Repository;
 
 import engineering.it.web.webapp.dao.MestoDao;
 import engineering.it.web.webapp.domain.Mesto;
 
+@Repository
 public class MestoDaoSpringJDBC implements MestoDao {
 
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public MestoDaoSpringJDBC() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		/*DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/webapp_day51");
 		dataSource.setUsername("root");
 		dataSource.setPassword("pass");
-		jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate = new JdbcTemplate(dataSource);*/
+		System.out.println("MestoDaoSpringJDBC const : JdbcTemplate:" + jdbcTemplate);
 	}
 
 	class MestoMapper implements RowMapper<Mesto> {
