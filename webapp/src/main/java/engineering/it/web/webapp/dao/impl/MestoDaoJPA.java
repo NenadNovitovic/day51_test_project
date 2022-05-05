@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.stereotype.Repository;
+
 import engineering.it.web.webapp.dao.MestoDao;
 import engineering.it.web.webapp.domain.Mesto;
 import engineering.it.web.webapp.persistence.MyEntityManagerFactory;
+
 
 public class MestoDaoJPA implements MestoDao {
 
@@ -19,6 +22,7 @@ public class MestoDaoJPA implements MestoDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Mesto> getAll() {
+		System.out.println("========= MestoDaoJPA getALL =============");
 		return em.createQuery("from Mesto").getResultList();
 	}
 

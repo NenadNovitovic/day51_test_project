@@ -13,32 +13,41 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-</head>
+</head  class="bg-light">
 <body class="bg-light">
 	<jsp:include page="/WEB-INF/fragments/loggedin_user.jsp"></jsp:include>
 	<jsp:include page="/WEB-INF/fragments/navigation.jsp"></jsp:include>
 	<div class='container'>
-		<h3>Odabrani proizvodjac</h3>
-		<form method='get' action='/webapp/application/proizvodjac/edit'>
+		<h1>Edit proizvodjac</h1>
+
+		<form method='post' action='/webapp/application/proizvodjac/edit'>
 			<div>
 				<label for='pib'>PIB:</label> <br> <input type='text'
-					name='pib' readonly="readonly" value='${proizvodjac.pib }'>
+					name='pib' value='${proizvodjac.pib}' readonly='readonly'>
 			</div>
 			<div>
 				<label for='maticniBroj'>Maticni broj:</label> <br> <input
-					type='text' name='maticniBroj' readonly="readonly"
-					value='${proizvodjac.maticniBroj }'>
+					type='text' name='maticniBroj' value='${proizvodjac.maticniBroj}' readonly='readonly'>
 			</div>
 			<div>
 				<label for='adresa'>Adresa:</label> <br> <input type='text'
-					name='adresa' readonly="readonly" value='${proizvodjac.adresa }'>
+					name='adresa' value='${proizvodjac.adresa}'>
 			</div>
 			<div>
-				<label for='mesto'>Mesto:</label> <input type='text' name='mesto'
-					readonly="readonly" value='${proizvodjac.mesto.naziv }'>
+				<label for='mesto'>Mesto:</label> <br> <select name="mesto" >
+					<c:forEach items="${mesta }" var="mesto">
+						<c:if test="${mesto==proizvodjac.mesto}">
+							<option value="${mesto.pttBroj }" selected>${mesto.naziv } </option>	
+						</c:if>
+						<c:if test="${mesto!=proizvodjac.mesto}">
+							<option value="${mesto.pttBroj }">${mesto.naziv }</option>
+						</c:if>
+					</c:forEach>
+				</select>
 			</div>
-			<input type='submit' value='Edit' name='btn-action'> <input
-				type='submit' value='Back' name='btn-action'>
+			<input type='submit' value='Edit' name='btn-action'>
+			
+			<input type='submit' value='Back' name='btn-action'>
 		</form>
 		<div class='text-info'>${error}</div>
 	</div>

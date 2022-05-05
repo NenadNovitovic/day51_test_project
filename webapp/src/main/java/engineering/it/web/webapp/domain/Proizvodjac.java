@@ -11,7 +11,7 @@ public class Proizvodjac implements Serializable {
 	private String maticniBroj;
 	private String adresa;
 	
-	@ManyToOne(cascade = { CascadeType.MERGE,CascadeType.PERSIST })
+	@ManyToOne//(cascade = { CascadeType.MERGE,CascadeType.PERSIST })
 	//@ManyToOne
 	@JoinColumn(name = "mesto")
 	private Mesto mesto;

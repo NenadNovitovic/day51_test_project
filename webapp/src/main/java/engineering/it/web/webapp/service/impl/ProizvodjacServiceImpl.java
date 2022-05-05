@@ -43,7 +43,7 @@ public class ProizvodjacServiceImpl implements ProizvodjacService {
 
 	@Override
 	public boolean editProizvodjac(Proizvodjac m) {
-		//provera da li postoji to mesto vec
+		
 		return dao.update(m);
 	}
 

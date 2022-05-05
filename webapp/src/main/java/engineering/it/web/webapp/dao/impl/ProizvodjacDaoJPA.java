@@ -53,13 +53,14 @@ public class ProizvodjacDaoJPA implements ProizvodjacDao {
 		boolean updated = false;
 		
 		
-		/*Proizvodjac existing = em.find(Proizvodjac.class, p.getPib()));
+		Proizvodjac existing = em.find(Proizvodjac.class, p.getPib());
 		if(existing!=null) {
 			em.getTransaction().begin();
-			existing.setNaziv(p.getNaziv());
+			existing.setAdresa(p.getAdresa());
+			existing.setMesto(p.getMesto());
 			em.getTransaction().commit();
 			updated= true;
-		}*/
+		}
 
 		return updated;
 	}

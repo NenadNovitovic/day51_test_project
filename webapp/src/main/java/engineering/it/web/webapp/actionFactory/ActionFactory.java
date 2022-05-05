@@ -22,6 +22,8 @@ import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.AddNewProizvodjacPostAction;
 import engineering.it.web.webapp.action.proizvodjac.DeleteProizvodjacGetAction;
 import engineering.it.web.webapp.action.proizvodjac.DeleteProizvodjacPostAction;
+import engineering.it.web.webapp.action.proizvodjac.EditProizvodjacGetAction;
+import engineering.it.web.webapp.action.proizvodjac.EditProizvodjacPostAction;
 import engineering.it.web.webapp.action.proizvodjac.ProizvodjaciAction;
 import engineering.it.web.webapp.action.proizvodjac.ViewProizvodjacAction;
 import engineering.it.web.webapp.constant.WebConstant;
@@ -43,25 +45,29 @@ public class ActionFactory {
 	@Autowired
 	private AddNewProizvodjacPostAction addNewProizvodjacPostAction;
 	@Autowired
-	private AbstractAction proizvodjaciAction;
+	private ProizvodjaciAction proizvodjaciAction;
 	@Autowired
-	private AbstractAction addMestoGetAction;
+	private AddMestoGetAction addMestoGetAction;
 	@Autowired
-	private AbstractAction addMestoPostAction;
+	private AddMestoPostAction addMestoPostAction;
 	@Autowired
-	private AbstractAction viewMestoAction;
+	private ViewMestoAction viewMestoAction;
 	@Autowired
-	private AbstractAction deleteMestoAction;
+	private DeleteMestoAction deleteMestoAction;
 	@Autowired
-	private AbstractAction editMestoGetAction;
+	private EditMestoGetAction editMestoGetAction;
 	@Autowired
-	private AbstractAction editMestoPostAction;
+	private EditMestoPostAction editMestoPostAction;
 	@Autowired
-	private AbstractAction deleteProizvodjacGetAction;
+	private DeleteProizvodjacGetAction deleteProizvodjacGetAction;
 	@Autowired
-	private AbstractAction deleteProizvodjacPostAction;
+	private DeleteProizvodjacPostAction deleteProizvodjacPostAction;
 	@Autowired
-	private AbstractAction viewProizvodjacAction;
+	private ViewProizvodjacAction viewProizvodjacAction;
+	@Autowired
+	private EditProizvodjacGetAction editProizvodjacGetAction;
+	@Autowired
+	private EditProizvodjacPostAction editProizvodjacPostAction;
 	
 	public ActionFactory() {
 		System.out.println("ActionFactory conts : MestaAction: " +mestaAction);
@@ -130,9 +136,9 @@ public class ActionFactory {
 				break;
 			case WebConstant.PATH_EDIT_PROIZVODJAC:
 				if(method.equalsIgnoreCase("GET"))
-					action = deleteProizvodjacGetAction;
+					action = editProizvodjacGetAction;
 				if(method.equalsIgnoreCase("POST"))
-					action = deleteProizvodjacPostAction;
+					action = editProizvodjacPostAction;
 				break;
 			default:
 				break;

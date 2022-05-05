@@ -47,6 +47,7 @@ public class MestoDaoSpringJDBC implements MestoDao {
 
 	@Override
 	public List<Mesto> getAll() {
+		System.out.println("========= MestoDaoSpringJDBC getALL =============");
 		String query = "SELECT * FROM Mesto";
 
 		return jdbcTemplate.query(query, new MestoMapper());
